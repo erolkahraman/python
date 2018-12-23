@@ -1,0 +1,5 @@
+a = int(input("birinci sayı\t: "))
+b = int(input("ikinci sayı\t\t: "))
+c = int(input("üçüncü sayı\t\t: "))
+print("#"*30)
+print ("üç sayının çarpımı = {}".format(a*b*c))
