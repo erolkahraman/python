@@ -25,30 +25,7 @@ class disk_bilgisi():
 		print(self.serbest_disk_alani)
 
 disk_durum = disk_bilgisi(disk)
-disk_durum.serbest_disk_alani()
-"""
-while True:
-
-	print("""
-
-#	1. Boş disk alanı
-#	2. Kullanılan disk alanı
-#	3. Toplam disk alanı
-#	4. Tüm disk bilgileri
-#
-#	Çıkış [q] :
-	""")
-	secim = input("Seçiminiz > ")
-
-	if secim == "q":
-		break
-	elif secim == "1":
-		print("Boş disk alanı: %sG" % disk_durum.serbest_disk_alani())
-		break
-
-
-
-"""
+# disk_durum.serbest_disk_alani()
 
 #disk_durumu = disk_bilgisi(disk)
 
