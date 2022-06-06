@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import sys
 from PyQt5 import QtWidgets,QtGui
 
@@ -9,4 +11,5 @@ def Pencere():
     pencere.show()
     
     sys.exit(app.exec_())
-    
+
+Pencere()
