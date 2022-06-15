@@ -7,4 +7,4 @@ case $choise in
     "2") pass
 esac
 
-whiptail --msgbox "$result" 30 60
+whiptail --msgbox --scrolltext "$result" 50 70

@@ -16,8 +16,8 @@ cisco = {
 }
 
 net_connect = ConnectHandler(**cisco)
-net_connect.enable()
+#net_connect.enable()
 
-output = net_connect.send_command('sh run int vl 141')
+output = net_connect.send_command('show version')
 
-print(output,type(output))
+print(output)
