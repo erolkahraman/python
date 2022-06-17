@@ -4,7 +4,6 @@ from asyncio.subprocess import DEVNULL
 import subprocess as sp
 from subprocess import PIPE
 from sys import stderr
-from unittest.result import STDERR_LINE
 from netmiko import ConnectHandler as CH
 import time
 
@@ -29,7 +28,7 @@ class Whiptail:
         command = 'whiptail --yesno "{}" --title "{}" {} {}'.format(metin,baslik,boy,en)
         result = sp.Popen(command,stdout=stderr,stderr=PIPE,shell=True)
         out,err = result.communicate()
-        return err
+        return result.returncode
 
 
 WhipT1 = Whiptail()
