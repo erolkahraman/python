@@ -17,3 +17,4 @@ def c_commands(cmd):
     commands = {
        "sh_ver": "show version"
     }
+    return commands[cmd]
