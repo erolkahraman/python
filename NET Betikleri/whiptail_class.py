@@ -13,18 +13,39 @@ class Whiptail:
         pass
 
     def w_input(self,metin="AÇIKLAMA",baslik="BAŞLIK",en=0,boy=0):
+        """
+        ======== BASLIK =======
+        ACIKLAMA:_____________
+
+        [OK]           [Cancel]
+        =======================
+        """
         command = 'whiptail --inputbox "{}" --title "{}" {} {}'.format(metin,baslik,boy,en)
         result = sp.Popen(command,stdout=stderr,stderr=PIPE,shell=True)
         out,err = result.communicate()
         return err
 
     def w_msg(self,metin="MESAJ",baslik="BAŞLIK",en=0,boy=0):
+        """
+        ======== BASLIK =======
+        METIN
+
+                  [OK]
+        =======================
+        """
         command = 'whiptail --scrolltext --msgbox "{}" --title "{}" {} {}'.format(metin,baslik,boy,en)
         result = sp.Popen(command,stdout=stderr,stderr=PIPE,shell=True)
         out,err = result.communicate()
         return err
 
     def w_onay(self,metin="MESAJ",baslik="BAŞLIK",en=0,boy=0):
+        """
+        ======== BASLIK =======
+        METIN
+
+        [YES]              [NO]
+        =======================
+        """
         #command = 'whiptail --yesno "{}" --title "{}" {} {}'.format(metin,baslik,boy,en)
         command = f'whiptail --yesno "{metin}" --title "{baslik}" {boy} {en}'
         result = sp.Popen(command,stdout=stderr,stderr=PIPE,shell=True)
@@ -42,15 +63,13 @@ class Whiptail:
         NOT: 
         - Menu tag degerleri 1 den baslayarak artmaktadir.
         - Tag degerleri gizlenmektedir (--notags).
-        """    
-
+        """
         i = 1
         secenek = []
         for menu_elemani in liste:
             secenek.append(str(i))
             secenek.append(menu_elemani)
             i += 1
-        print ("=================\n",secenek)
         command = 'whiptail --menu "{}" --notags --title "{}" {} {} {} {}'.format(metin,baslik,boy,en,len(liste),' '.join(secenek))
         result = sp.Popen(command,stdout=stderr,stderr=PIPE,shell=True)
         out,err = result.communicate()
@@ -63,4 +82,4 @@ WhipT1 = Whiptail()
 # print (WhipT1.w_msg(metin=mesajj).decode("utf-8"))
 
 
-print(WhipT1.w_menu(en=30,boy=10,liste=["bir","iki","üç","dört"]))
+print(WhipT1.w_menu(en=30,boy=15,liste=["bir","iki","üç","dört"]))
