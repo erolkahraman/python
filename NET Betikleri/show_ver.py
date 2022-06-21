@@ -16,7 +16,7 @@ cisco = {
 }
 
 net_connect = ConnectHandler(**cisco)
-#net_connect.enable()
+net_connect.enable()
 
 output = net_connect.send_command('show version')
 
