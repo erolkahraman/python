@@ -53,18 +53,17 @@ class Whiptail:
         out,err = result.communicate()
         return err
 
-    def w_gauge(self,metin="MESAJ",baslik="BAŞLIK",en=0,boy=0,yuzde=0):
-        """
-        ======== BASLIK =======\n
-        METIN\n
-
-        #############>
-        =======================\n
-        """
-        command = 'whiptail --gauge "{}" --title "{}" {} {} {}'.format(metin,baslik,boy,en,yuzde)
-        result = sp.Popen(command,stdout=stderr,stderr=PIPE,shell=True)
-        out,err = result.communicate()
-        return err
+    # def w_gauge(self,metin="MESAJ",baslik="BAŞLIK",en=0,boy=0,yuzde=0):
+    #     """
+    #     ======== BASLIK =======\n
+    #     METIN\n
+    #     >>>>>>>>>
+    #     =======================\n
+    #     """
+    #     command = f'whiptail --gauge "{metin}" --title "{baslik}" {boy} {en} {yuzde}'
+    #     result = sp.Popen(command,stdout=stderr,stderr=PIPE,shell=True)
+    #     out,err = result.communicate()
+    #     return err
 
     def w_onay(self,metin="MESAJ",baslik="BAŞLIK",en=0,boy=0):
         """
@@ -159,14 +158,4 @@ WhipT1 = Whiptail()
 # print (WhipT1.w_msg(metin=mesajj).decode("utf-8"))
 # print(WhipT1.w_menu(en=30,boy=15,liste=["bir","iki","üç","dört"]))
 # print(WhipT1.w_radio(en=30,boy=15,liste=["bir","iki","üç","dört"]))
-
 # print(WhipT1.w_pass(boy=10,en=40))
-
-i=0
-while True:
-    
-    print(WhipT1.w_gauge(metin="Tamamlanma Yüzdesi",boy=15,en=40,yuzde=i))
-    i+=10
-    time.sleep(0.3)
-    if i >= 100:
-        break
