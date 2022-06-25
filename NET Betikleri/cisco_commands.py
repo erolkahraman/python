@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-
-
 from cisco_access import c_omurga,c_commands
 from netmiko import ConnectHandler
 
