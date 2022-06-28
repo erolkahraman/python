@@ -14,11 +14,11 @@ class Whiptail:
 
     def w_input(self,metin="AÇIKLAMA",baslik="BAŞLIK",en=0,boy=0):
         """
-        ======== BASLIK =======
-        ACIKLAMA:_____________
-
-        [OK]           [Cancel]
-        =======================
+        ======== BASLIK =======\n
+        ACIKLAMA:_____________\n
+        \n
+        [OK]           [Cancel]\n
+        =======================\n
         """
         command = 'whiptail --inputbox "{}" --title "{}" {} {}'.format(metin,baslik,boy,en)
         result = sp.Popen(command,stdout=stderr,stderr=PIPE,shell=True)
@@ -27,13 +27,11 @@ class Whiptail:
 
     def w_pass(self,metin="PAROLA",baslik="BAŞLIK",en=0,boy=0):
         """
-        ======== BASLIK =======
-
-        PAROLA:*******_
-
-        [OK]           [Cancel]
-
-        ======================
+        ======== BASLIK =======\n
+        PAROLA:*******_\n
+        \n
+        [OK]           [Cancel]\n
+        ======================\n
         """
         command = f'whiptail --passwordbox "{metin}" --title "{baslik}" {boy} {en}'
         result = sp.Popen(command,stdout=stderr,stderr=PIPE,shell=True)
@@ -42,11 +40,11 @@ class Whiptail:
 
     def w_msg(self,metin="MESAJ",baslik="BAŞLIK",en=0,boy=0):
         """
-        ======== BASLIK =======
-        METIN
-
-                  [OK]
-        =======================
+        ======== BASLIK =======\n
+        METIN\n
+        \n
+                  [OK]\n
+        =======================\n
         """
         command = 'whiptail --scrolltext --msgbox "{}" --title "{}" {} {}'.format(metin,baslik,boy,en)
         result = sp.Popen(command,stdout=stderr,stderr=PIPE,shell=True)
@@ -67,11 +65,11 @@ class Whiptail:
 
     def w_onay(self,metin="MESAJ",baslik="BAŞLIK",en=0,boy=0):
         """
-        ======== BASLIK =======
-        METIN
-
-        [YES]              [NO]
-        =======================
+        ======== BASLIK =======\n
+        METIN\n
+        \n
+        [YES]              [NO]\n
+        =======================\n
         """
         #command = 'whiptail --yesno "{}" --title "{}" {} {}'.format(metin,baslik,boy,en)
         command = f'whiptail --yesno "{metin}" --title "{baslik}" {boy} {en}'

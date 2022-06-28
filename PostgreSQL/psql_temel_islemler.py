@@ -2,7 +2,16 @@
 
 import psycopg2
 
-conn = psycopg2.connect(database="testdb", user = "test_u", password = "test_u", host = "127.0.0.1", port = "5432")
+
+db_conn = {
+        "database":"testdb",
+        "user": "test_u",
+        "password": "test_u", 
+        "host": "127.0.0.1", 
+        "port": "5432"
+
+}
+conn = psycopg2.connect(**db_conn)
 
 print ("Opened database successfully")
 
@@ -20,25 +29,25 @@ print ("Opened database successfully")
 # conn.commit()
 # conn.close()
 
-INS1 = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
-        VALUES (1, 'Paul', 32, 'California', 20000.00 )"
-INS2 = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
-        VALUES (2, 'Allen', 25, 'Texas', 15000.00 )"
-INS3 = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
-        VALUES (3, 'Teddy', 23, 'Norway', 20000.00 )"
-INS4 = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
-          VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 )"
+# INS1 = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+#         VALUES (1, 'Paul', 32, 'California', 20000.00 )"
+# INS2 = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+#         VALUES (2, 'Allen', 25, 'Texas', 15000.00 )"
+# INS3 = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+#         VALUES (3, 'Teddy', 23, 'Norway', 20000.00 )"
+# INS4 = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \
+#           VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 )"
 
-cur = conn.cursor()
-for INSERT in INS1, INS2, INS3, INS4:
-    try:
-        cur.execute(INSERT)
-        conn.commit()
-        print ("Records created successfully")
-    except psycopg2.errors.UniqueViolation:
-        print(INSERT,"HATA...")
-    continue
-conn.close()
+# cur = conn.cursor()
+# for INSERT in INS1, INS2, INS3, INS4:
+#     try:
+#         cur.execute(INSERT)
+#         conn.commit()
+#         print ("Records created successfully")
+#     except psycopg2.errors.UniqueViolation:
+#         print(INSERT,"HATA...")
+#         continue
+# conn.close()
 
 
 # cur = conn.cursor()
